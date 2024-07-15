@@ -1,34 +1,101 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {
+  Document,
+  Font,
+  Page,
+  PDFViewer,
+  Text,
+  View,
+} from '@react-pdf/renderer'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import font400 from './assets/fonts/noto-sans-sc-chinese-simplified-400-normal.ttf'
+import font700 from './assets/fonts/noto-sans-sc-chinese-simplified-700-normal.ttf'
 
+import dejaVuBold from './assets/fonts/DejaVuSans-Bold.ttf'
+import dejaVu from './assets/fonts/DejaVuSans.ttf'
+
+import PingFangSCLight from './assets/fonts/pingfang/PingFangSC-Light.ttf'
+import PingFangSCMedium from './assets/fonts/pingfang/PingFangSC-Medium.ttf'
+import PingFangSCRegular from './assets/fonts/pingfang/PingFangSC-Regular.ttf'
+import PingFangSCSemiBold from './assets/fonts/pingfang/PingFangSC-Semibold.ttf'
+
+// It's work
+Font.register({
+  family: 'noto-sans-sc',
+  fonts: [
+    {
+      src: font400,
+      fontWeight: 'normal',
+    },
+    {
+      src: font700,
+      fontWeight: 'bold',
+    },
+  ],
+})
+
+// It's not work 👇
+Font.register({
+  family: 'dejavu-sans-latin',
+  fonts: [
+    {
+      src: dejaVu,
+      fontWeight: 'normal',
+    },
+    {
+      src: dejaVuBold,
+      fontWeight: 'bold',
+    },
+  ],
+})
+// It's not work 👇
+Font.register({
+  family: 'pingfang',
+  fonts: [
+    {
+      src: PingFangSCRegular,
+      fontWeight: 'normal',
+    },
+    {
+      src: PingFangSCMedium,
+      fontWeight: 'medium',
+    },
+    {
+      src: PingFangSCLight,
+      fontWeight: 'light',
+    },
+    {
+      src: PingFangSCSemiBold,
+      fontWeight: 'bold',
+    },
+  ],
+})
+
+function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>Demo</h1>
+      <PDFViewer
+        showToolbar={true}
+        width={'100%'}
+        height={'900px'}
+      >
+        <Document title="Demo">
+          <Page
+            style={{
+              fontFamily: 'noto-sans-sc', // worked
+              // fontFamily: 'dejavu-sans-latin', // not work: pdf white screen, no error
+              // fontFamily: 'pingfang', // not work: pdf white screen, no error
+            }}
+          >
+            <View>
+              <Text>Demo PDF</Text>
+              <Text>示例 PDF</Text>
+            </View>
+          </Page>
+        </Document>
+      </PDFViewer>
+    </div>
   )
 }
 
