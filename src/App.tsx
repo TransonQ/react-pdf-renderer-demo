@@ -8,16 +8,16 @@ import {
 } from '@react-pdf/renderer'
 import './App.css'
 
-import font400 from './assets/fonts/noto-sans-sc-chinese-simplified-400-normal.ttf'
-import font700 from './assets/fonts/noto-sans-sc-chinese-simplified-700-normal.ttf'
+import font400 from '/fonts/noto-sans-sc-chinese-simplified-400-normal.ttf'
+import font700 from '/fonts/noto-sans-sc-chinese-simplified-700-normal.ttf'
 
-import dejaVuBold from './assets/fonts/DejaVuSans-Bold.ttf'
-import dejaVu from './assets/fonts/DejaVuSans.ttf'
+import dejaVuBold from '/fonts/DejaVuSans-Bold.ttf'
+import dejaVu from '/fonts/DejaVuSans.ttf'
 
-import PingFangSCLight from './assets/fonts/pingfang/PingFangSC-Light.ttf'
-import PingFangSCMedium from './assets/fonts/pingfang/PingFangSC-Medium.ttf'
-import PingFangSCRegular from './assets/fonts/pingfang/PingFangSC-Regular.ttf'
-import PingFangSCSemiBold from './assets/fonts/pingfang/PingFangSC-Semibold.ttf'
+import PingFangSCLight from '/fonts/pingfang/PingFangSC-Light.ttf'
+import PingFangSCMedium from '/fonts/pingfang/PingFangSC-Medium.ttf'
+import PingFangSCRegular from '/fonts/pingfang/PingFangSC-Regular.ttf'
+import PingFangSCSemiBold from '/fonts/pingfang/PingFangSC-Semibold.ttf'
 
 // It's work
 Font.register({
@@ -83,8 +83,8 @@ function App() {
         <Document title="Demo">
           <Page
             style={{
-              // fontFamily: 'noto-sans-sc', // worked
-              fontFamily: 'dejavu-sans-latin', // not work: pdf white screen, no error
+              fontFamily: 'noto-sans-sc', // worked
+              // fontFamily: 'dejavu-sans-latin', // not work: pdf white screen, no error
               // fontFamily: 'pingfang', // not work: pdf white screen, no error
             }}
           >
