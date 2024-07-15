@@ -83,8 +83,8 @@ function App() {
         <Document title="Demo">
           <Page
             style={{
-              fontFamily: 'noto-sans-sc', // worked
-              // fontFamily: 'dejavu-sans-latin', // not work: pdf white screen, no error
+              // fontFamily: 'noto-sans-sc', // worked
+              fontFamily: 'dejavu-sans-latin', // not work: pdf white screen, no error
               // fontFamily: 'pingfang', // not work: pdf white screen, no error
             }}
           >
