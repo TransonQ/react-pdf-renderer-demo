@@ -83,14 +83,11 @@ function App() {
         <Document title="Demo">
           <Page
             style={{
-              fontFamily: 'noto-sans-sc', // worked
-              // fontFamily: 'dejavu-sans-latin', // not work: pdf white screen, no error
-              // fontFamily: 'pingfang', // not work: pdf white screen, no error
+              fontFamily: 'noto-sans-sc', 
             }}
           >
             <View>
-              <Text>Demo PDF</Text>
-              <Text>示例 PDF</Text>
+              <Text>The Unicode code point of  "  ≤  "  is U+2264 or u2264.</Text>
             </View>
           </Page>
         </Document>
